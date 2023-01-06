@@ -20,7 +20,7 @@ public class FraudCheckHistory {
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "fraud _id_sequence"
+            generator = "fraud_id_sequence"
     )
     private Integer id;
     private Integer customerId;

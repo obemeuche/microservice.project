@@ -2,7 +2,6 @@ package com.obeme.customer;
 
 import com.obeme.clients.fraud.FraudCheckResponse;
 import com.obeme.clients.fraud.FraudClient;
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
