@@ -39,6 +39,6 @@ public record CustomerService(CustomerRepository customerRepository, RestTemplat
             throw new RuntimeException("Man's a fraudster!!");
         }
         //todo:  send notification
-        notificationClient.notifyCustomer(customer.getId());
+        notificationClient.notifyCustomer(customer.getId(), customer.getEmail());
     }
 }

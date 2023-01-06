@@ -15,9 +15,9 @@ public class NotificationController {
 
     private final NotificationService notificationService;
 
-    @PostMapping("{customerId}")
-    public void notifyCustomer (@PathVariable("customerId") Integer customerId) {
+    @PostMapping("{customerId}/{customerEmail}")
+    public void notifyCustomer (@PathVariable("customerId") Integer customerId,@PathVariable("customerEmail") String customerEmail) {
         log.info("Notification for customerId " + customerId);
-        notificationService.notify(customerId);
+        notificationService.notify(customerId, customerEmail);
     }
 }

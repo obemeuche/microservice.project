@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 @FeignClient ("NOTIFICATION")
 public interface NotificationClient {
 
-    @PostMapping("api/v1/notification/{customerId}")
-    void notifyCustomer (@PathVariable("customerId") Integer customerId);
+    @PostMapping("api/v1/notification/{customerId}/{customerEmail}")
+    void notifyCustomer (@PathVariable("customerId") Integer customerId,@PathVariable("customerEmail") String customerEmail);
 }

@@ -11,12 +11,14 @@ public class NotificationService {
 
     private final NotificationRepository notificationRepository;
 
-    public void notify (Integer customerId) {
+    public void notify (Integer customerId, String customerEmail) {
 
         notificationRepository.save(
                 Notification.builder()
                         .customerId(customerId)
-                        .message("Thank you for believing in us! We hope to serve you better")
+                        .customerEmail(customerEmail)
+                        .sender("Obeme")
+                        .message("Thank you for believing in me! I hope to serve you better")
                         .time(LocalDateTime.now())
                         .build());
     }
