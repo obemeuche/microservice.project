@@ -2,13 +2,14 @@ package com.obeme.customer;
 
 import com.obeme.clients.fraud.FraudCheckResponse;
 import com.obeme.clients.fraud.FraudClient;
+import com.obeme.clients.fraud.NotificationClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @Service
-public record CustomerService(CustomerRepository customerRepository, RestTemplate restTemplate, FraudClient fraudClient) {
+public record CustomerService(CustomerRepository customerRepository, RestTemplate restTemplate, FraudClient fraudClient, NotificationClient notificationClient) {
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer
                 .builder()
@@ -38,5 +39,6 @@ public record CustomerService(CustomerRepository customerRepository, RestTemplat
             throw new RuntimeException("Man's a fraudster!!");
         }
         //todo:  send notification
+        notificationClient.notifyCustomer(customer.getId());
     }
 }
