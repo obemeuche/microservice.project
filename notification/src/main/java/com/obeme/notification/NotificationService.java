@@ -12,6 +12,7 @@ public class NotificationService {
     private final NotificationRepository notificationRepository;
 
     public void notify (Integer customerId) {
+
         notificationRepository.save(
                 Notification.builder()
                         .customerId(customerId)
